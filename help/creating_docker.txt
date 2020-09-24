@@ -13,5 +13,8 @@ docker-compose build
 docker-compose run app sh -c "django-admin.py startproject app ."
 ##########################
 
-
-We will edit 3rd command to also run react service
+4) Run docker container -> open the container's cli ->
+task: create a sub-project for api inside root project
+##########################
+python manage.py startapp profiles_api
+##########################
