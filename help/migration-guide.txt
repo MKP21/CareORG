@@ -1,0 +1,12 @@
+1) Go to docker container cli
+
+2) run
+#################################
+python manage.py makemigrations care_api
+#################################
+model is now created/updated
+
+3) run migration and make actual changes to the db
+#################################
+python manage.py migrate
+#################################
