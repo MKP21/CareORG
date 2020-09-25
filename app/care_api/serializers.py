@@ -50,4 +50,12 @@ class OrgDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.OrgDetails
-        fields = ('id','user_profile','description','location','industry')
+        fields = ('id', 'user_profile', 'description', 'location', 'industry')
+
+
+# class DonationSerializer(serializers.ModelSerializer):
+#     """Serializes the donation amount"""
+#
+#     class Meta:
+#         model = models.ProfileFeedItem
+#         fields = ('received_amount',)
