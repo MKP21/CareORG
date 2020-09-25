@@ -51,3 +51,28 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def _str_(self):
         """return string representation of our user"""
         return self.email
+
+
+class ProfileFeedItem(models.Model):
+    """Events for an organisation"""
+    user_profile = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    event_description = models.TextField()
+    created_on = models.DateField(auto_now_add=True)
+    expires_on = models.DateField()
+    is_Expired = models.BooleanField(default=False)
+    goal_amount = models.IntegerField()
+    received_amount = models.IntegerField(default=0)
+
+
+class OrgDetails(models.Model):
+    """Store details for an organisation"""
+    user_profile = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    description = models.TextField()
+    location = models.CharField(max_length=50)
+    industry = models.CharField(max_length=50)
