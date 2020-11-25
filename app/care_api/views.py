@@ -82,3 +82,15 @@ class OrgDetailsViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user_profile=self.request.user)
+
+
+class DonationHistoryViewSet(viewsets.ModelViewSet):
+    """Handle donation records"""
+    authentication_classes = {TokenAuthentication, }
+    serializer_class = serializers.DonationHistorySerializer
+    queryset = models.DonationHistory.objects.all()
+    permission_classes = (
+        IsAuthenticated,
+    )
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('user_profile', 'event_id')

@@ -14,7 +14,7 @@ class UserProfileManager(BaseUserManager):
             raise ValueError('User must have email address')
         email = self.normalize_email(email)
         user = self.model(email=email, name=name)
-        user.is_organisation=is_organisation
+        user.is_organisation = is_organisation
         user.set_password(password)
         user.save(using=self._db)
 
@@ -59,6 +59,7 @@ class ProfileFeedItem(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
+    event_title = models.TextField()
     event_description = models.TextField()
     created_on = models.DateField(auto_now_add=True)
     expires_on = models.DateField()
@@ -76,3 +77,16 @@ class OrgDetails(models.Model):
     description = models.TextField()
     location = models.CharField(max_length=50)
     industry = models.CharField(max_length=50)
+
+
+class DonationHistory(models.Model):
+    """Store donation records"""
+    user_profile = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    event_id = models.ForeignKey(
+        ProfileFeedItem,
+        on_delete=models.CASCADE,
+    )
+    amount_donated = models.IntegerField()
