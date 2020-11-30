@@ -14,5 +14,5 @@ A web service which aggregates charities and helps increase their outreach
 9) run "python manage.py makemigrations" or "python3 manage.py makemigrations"
 10) run "python manage.py migrate"
 
--> The project should be running now with an empty db
-  Note: you can also follow the same steps to clear the database (skip steps 1,4,5)
+->  The project should be running now with an empty db
+->  Note: you can also follow the same steps to clear the database (skip steps 1,4,5)
