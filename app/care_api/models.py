@@ -85,8 +85,11 @@ class DonationHistory(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
+
+    # event_id = models.IntegerField()
     event_id = models.ForeignKey(
         ProfileFeedItem,
         on_delete=models.CASCADE,
     )
+
     amount_donated = models.IntegerField()

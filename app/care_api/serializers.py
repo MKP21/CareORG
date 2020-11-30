@@ -40,7 +40,8 @@ class ProfileFeedItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.ProfileFeedItem
-        fields = ('id', 'user_profile', 'event_title', 'event_description', 'created_on', 'expires_on', 'is_Expired', 'goal_amount',
+        fields = ('id', 'user_profile', 'event_title', 'event_description', 'created_on', 'expires_on', 'is_Expired',
+                  'goal_amount',
                   'received_amount')
         extra_kwargs = {'user_profile': {'read_only': True}}
 
@@ -58,8 +59,7 @@ class DonationHistorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.DonationHistory
-        fields = ('user_profile', 'event_id', 'amount_donated')
-        extra_kwargs = {'user_profile': {'read_only': True}, 'event_id': {'read_only': True}}
+        fields = ('id', 'user_profile', 'event_id', 'amount_donated')
 
 # class DonationSerializer(serializers.ModelSerializer):
 #     """Serializes the donation amount"""
