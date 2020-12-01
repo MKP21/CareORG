@@ -59,7 +59,7 @@ class DonationHistorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.DonationHistory
-        fields = ('id', 'user_profile', 'event_id', 'amount_donated')
+        fields = ('id', 'user_profile', 'event_id', 'date', 'amount_donated')
 
 # class DonationSerializer(serializers.ModelSerializer):
 #     """Serializes the donation amount"""

@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 from django.conf import settings
+import datetime
 
 
 class UserProfileManager(BaseUserManager):
@@ -93,3 +94,4 @@ class DonationHistory(models.Model):
     )
 
     amount_donated = models.IntegerField()
+    date = models.DateField(default=datetime.date.today)
