@@ -67,6 +67,7 @@ class ProfileFeedItem(models.Model):
     is_Expired = models.BooleanField(default=False)
     goal_amount = models.IntegerField()
     received_amount = models.IntegerField(default=0)
+    campaign_image = models.ImageField(null=True,blank=True,upload_to="images/campagns/")
 
 
 class OrgDetails(models.Model):
@@ -78,6 +79,7 @@ class OrgDetails(models.Model):
     description = models.TextField()
     location = models.CharField(max_length=50)
     industry = models.CharField(max_length=50)
+    profile_image = models.ImageField(null=True,blank=True,upload_to="images/")
 
 
 class DonationHistory(models.Model):
